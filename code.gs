@@ -52,7 +52,7 @@ function onFormSubmit(e) {
 
     // カレンダーオブジェクトを取得(赤い文字がカレンダーID。これは予定を入れる先のカレンダーIDを手入力)
     //  ※「Calendar」が実行されたときに動く内容を設定
-    let Calendar = CalendarApp.getCalendarById("0vcnqn77u418ij7b4b0ju4mkkc@group.calendar.google.com");
+    let Calendar = CalendarApp.getCalendarById("<<カレンダーID>>");
 
     // タイムゾーン設定
     Calendar.setTimeZone("Asia/Tokyo");
