@@ -117,7 +117,7 @@ function onFormSubmit(e) {
 
   // メインプロセス
     // 予約日に【予約不可】があるときに
-    if (Calendar.getEventsForDay(new Date(Yoyaku_day), {search: '　予約不可'}).length) {
+    if (Calendar.getEventsForDay(new Date(Yoyaku_day), {search: '予約不可'}).length) {
       // 自動返信メール件名を変数「Subject」に代入
       let Subject ="【" + Name + "様へ】　予約失敗！！！";
     
