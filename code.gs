@@ -49,6 +49,8 @@ function onFormSubmit(e) {
     // 順位設定用の変数を作成
     let Ranking = "error";
     
+    // ログを書く
+    console.log("変数設定完了");
 
     // カレンダーオブジェクトを取得(赤い文字がカレンダーID。これは予定を入れる先のカレンダーIDを手入力)
     //  ※「Calendar」が実行されたときに動く内容を設定
@@ -56,6 +58,9 @@ function onFormSubmit(e) {
 
     // タイムゾーン設定
     Calendar.setTimeZone("Asia/Tokyo");
+
+    // ログを書く
+    console.log("初期設定完了");
   //初期設定終了
 
 
@@ -101,6 +106,9 @@ function onFormSubmit(e) {
       // メール送信
       MailApp.sendEmail(Email,Subject,Body);
 
+      // ログを書く
+      console.log("予約完了メール送信完了")
+
       //Mainprogramの終了を示す
       return Ranking;
     }
@@ -138,12 +146,18 @@ function onFormSubmit(e) {
       // メール送信
       MailApp.sendEmail(Email,Subject,Body);
 
+      // ログを書く
+      console.log("予約不可日通知メール送信完了")
+
     // ①で始まるイベントがないときに    
     } else if (!Calendar.getEventsForDay(new Date(Yoyaku_day), {search: '①'}).length) {
       // 変数「Ranking」を①に設定
       let Ranking = '①';
       // 変数「Ranking」を用いて、「Mainprogram」を実行
       Mainprogram(Ranking);
+
+      // ログを書く
+      console.log("予約番号①で"+ new Date(Yoyaku_day) + "に実行完了")
       
     // ②で始まるイベントがないときに
     } else if (!Calendar.getEventsForDay(new Date(Yoyaku_day), {search: '②'}).length) {
@@ -152,12 +166,18 @@ function onFormSubmit(e) {
       // 変数「Ranking」を用いて、「Mainprogram」を実行
       Mainprogram(Ranking);
 
+      // ログを書く
+      console.log("予約番号②で"+ new Date(Yoyaku_day) + "に実行完了")
+
     // ③で始まるイベントがないときに
     } else if (!Calendar.getEventsForDay(new Date(Yoyaku_day), {search: '③'}).length) {
       // 変数「Ranking」を③に設定
       let Ranking = '③';
       // 変数「Ranking」を用いて、「Mainprogram」を実行
       Mainprogram(Ranking);
+
+      // ログを書く
+      console.log("予約番号③で"+ new Date(Yoyaku_day) + "に実行完了")
       
     // ④で始まるイベントがないときに
     } else if (!Calendar.getEventsForDay(new Date(Yoyaku_day), {search: '④'}).length) {
@@ -165,6 +185,9 @@ function onFormSubmit(e) {
       let Ranking = '④';
       // 変数「Ranking」を用いて、「Mainprogram」を実行
       Mainprogram(Ranking);
+
+      // ログを書く
+      console.log("予約番号④で"+ new Date(Yoyaku_day) + "に実行完了")
       
     // 既に④まで予約が入っているときに
     } else {
@@ -179,7 +202,7 @@ function onFormSubmit(e) {
       + "---------------------------------------------" + "\n\n"
       + Name + "様"+"\n\n"
       + "工学院大学附属中学校・高等学校　デジタルクリエイター育成同好会　ものづくり班です。"+ "\n\n"
-      + "申し訳ございません。\e[1mご指定いただいた日程は、定員の人数を満たしたため、予約できません。" + "\n"
+      + "申し訳ございません。ご指定いただいた日程は、定員の人数を満たしたため、予約できません。" + "\n"
       + "以下のURLから予約が空いている日程に再度ご予約をお願いいたします。"　+ "\n"
       + "お手数おかけして、申し訳ございません。" +"\n\n"
       + "空いている日程はこちらで確認↓"+ "\n"
@@ -194,6 +217,9 @@ function onFormSubmit(e) {
 
       // メール送信
       MailApp.sendEmail(Email,Subject,Body);
+
+      // ログを書く
+      console.log("定員オーバーの予約不可メール送信完了")
     }
   // メインプロセス終了
 }
