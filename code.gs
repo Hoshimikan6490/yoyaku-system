@@ -54,7 +54,7 @@ function onFormSubmit(e) {
 
     // カレンダーオブジェクトを取得(赤い文字がカレンダーID。これは予定を入れる先のカレンダーIDを手入力)
     //  ※「Calendar」が実行されたときに動く内容を設定
-    let Calendar = CalendarApp.getCalendarById("<<カレンダーID>>");
+    let Calendar = CalendarApp.getCalendarById("0vcnqn77u418ij7b4b0ju4mkkc@group.calendar.google.com");
 
     // タイムゾーン設定
     Calendar.setTimeZone("Asia/Tokyo");
@@ -107,7 +107,7 @@ function onFormSubmit(e) {
       MailApp.sendEmail(Email,Subject,Body);
 
       // ログを書く
-      console.log("予約完了メール送信完了")
+      console.log("予約番号：" + Ranking + "、　予約日：" + new Date(Yoyaku_day) + "に実行完了")
 
       //Mainprogramの終了を示す
       return Ranking;
@@ -155,9 +155,8 @@ function onFormSubmit(e) {
       let Ranking = '①';
       // 変数「Ranking」を用いて、「Mainprogram」を実行
       Mainprogram(Ranking);
-
       // ログを書く
-      console.log("予約番号①で"+ new Date(Yoyaku_day) + "に実行完了")
+      console.log("予約完了メール送信完了")
       
     // ②で始まるイベントがないときに
     } else if (!Calendar.getEventsForDay(new Date(Yoyaku_day), {search: '②'}).length) {
@@ -165,9 +164,8 @@ function onFormSubmit(e) {
       let Ranking = '②';
       // 変数「Ranking」を用いて、「Mainprogram」を実行
       Mainprogram(Ranking);
-
       // ログを書く
-      console.log("予約番号②で"+ new Date(Yoyaku_day) + "に実行完了")
+      console.log("予約完了メール送信完了")
 
     // ③で始まるイベントがないときに
     } else if (!Calendar.getEventsForDay(new Date(Yoyaku_day), {search: '③'}).length) {
@@ -175,9 +173,8 @@ function onFormSubmit(e) {
       let Ranking = '③';
       // 変数「Ranking」を用いて、「Mainprogram」を実行
       Mainprogram(Ranking);
-
       // ログを書く
-      console.log("予約番号③で"+ new Date(Yoyaku_day) + "に実行完了")
+      console.log("予約完了メール送信完了")
       
     // ④で始まるイベントがないときに
     } else if (!Calendar.getEventsForDay(new Date(Yoyaku_day), {search: '④'}).length) {
@@ -185,9 +182,8 @@ function onFormSubmit(e) {
       let Ranking = '④';
       // 変数「Ranking」を用いて、「Mainprogram」を実行
       Mainprogram(Ranking);
-
       // ログを書く
-      console.log("予約番号④で"+ new Date(Yoyaku_day) + "に実行完了")
+      console.log("予約完了メール送信完了")
       
     // 既に④まで予約が入っているときに
     } else {
