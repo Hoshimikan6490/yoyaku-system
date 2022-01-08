@@ -89,7 +89,7 @@ function onFormSubmit(e) {
      // イベントを取得
         let Newevent = Calendar.getEventsForDay(new Date (Yoyaku_day), {search: Ranking});
      // 色設定
-        Newevent[0].setColor('11');
+        Newevent[0].setColor('2');
 
    // 自動返信メール件名を変数「Subject」に代入
      let Subject ="【" + Name + "様へ】　工学院大学付属中学・高等学校　３Dプリンター　予約確認メール";
