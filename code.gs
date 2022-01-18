@@ -23,13 +23,13 @@
 function onFormSubmit(e) {
  //　手動初期設定
    // カレンダーIDを指定
-    let Calendar_ID = "○○@group.calendar.google.com";
+    let Calendar_ID = "～～～@group.calendar.google.com";
 
    // GoogleカレンダーのURLを指定
-    let Calendar_URL = "https://calendar.google.com/calendar/~~";
+    let Calendar_URL = "https://calendar.google.com/calendar/～～～";
   
    // FormsのURLを指定
-    let Forms_URL = "https://forms.gle/~~";
+    let Forms_URL = "https://forms.gle/～～～";
 
  // 自動初期設定
    // タイムスタンプを変数「TimeStamp」に代入
@@ -91,44 +91,89 @@ function onFormSubmit(e) {
      // 色設定
         Newevent[0].setColor('2');
 
-   // 自動返信メール件名を変数「Subject」に代入
-     let Subject ="【" + Name + "様へ】　工学院大学付属中学・高等学校　３Dプリンター　予約確認メール";
-    
-   // 自動返信メール本文を変数「Body」に代入
-     let Body = 
-     "---------------------------------------------" + "\n"
-     + "※このメールは自動送信しておりますので、このメールにご返信いただいてもお答えできませんのでご了承ください。"+ "\n"
-     + "※お心当たりがない場合は、メールの破棄をお願いいたします。" + "\n"
-     + "---------------------------------------------" + "\n\n"
-     + Name + "様"+"\n\n"
-     + "工学院大学附属中学校・高等学校　デジタルクリエイター育成同好会　ものづくり班です。"+ "\n\n"
-     + "このたびは、３Dプリンターの利用予約をいただき、誠にありがとうございます。" + "\n"
-     + "下記URLの先に記載されている通り、カレンダーへの適応が完了しました。確認をお願い致します。"+ "\n"
-     + "あなたの" + Yoyaku_day + "の予約順は、" + Ranking + "番目です。" + "\n\n"
-     + Calendar_URL + "\n\n"
-     + "＜注意事項＞"+ "\n"
-     + "　※予約は、１日ごとに管理しております。そのため、お手数をおかけしますが、３Dプリンターを使うたびにご予約ください。" + "\n"
-     + "　※このメールは送信専用です。返信は出来ません。" + "\n"
-     + "　※取り消す際は、デジクリの３Dプリンターメンバー（放課後に３Dプリンターをいじっている人は大体そうです。笑）にご一報ください。"
-     + "\n\n"
-     + "---------------------------------------------"+ "\n"
-     + "　ご回答された内容："+ "\n\n"
-     + "　４桁番号：" + "　" + CLNO + "\n"
-     + "　　お名前：" + "　" + Name + "\n"
-     + "　　予約日：" + "　"+ Yoyaku_day + "\n"
-     + "　　印刷物：" + "　" + About_Thing + "\n"
-     + "　　　補助：" + "　" + Hojo + "\n"
-     + "　　　備考：" + "　" + Other_info + "\n\n"
-     + "　　Formsが送信された日時："　+ "　" + TimeStamp + "\n\n"
-     + "============================================" + "\n"
-     + "工学院大学附属中学校・高等学校　デジタルクリエイター育成同好会　ものづくり班" + "\n"
-     + "============================================";
-    
-   // メール送信
-     MailApp.sendEmail(Email,Subject,Body);
+   // 予約番号を書く
+     // 予約番号を決定
+       //このプログラムが所属するスプレッドシートのうち、「フォームの回答　1」という名前のシートを取得
+         let Yoyaku_Spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+         let Yoyaku_Sheet = Yoyaku_Spreadsheet.getSheetByName("フォームの回答 1");
+       //１列目の最終行を取得
+         let Old_yoyaku_NO_plas = Yoyaku_Sheet.getRange(Yoyaku_Sheet.getMaxRows(), 1).getNextDataCell(SpreadsheetApp.Direction.UP).getRow();
+     　// １列目の最終行の１つ上の行番号を取得(今回予約するところ)
+         let Yoyaku_NO =Old_yoyaku_NO_plas -1
+       // ログを書く
+        console.log("予約番号設定完了")
+     
+   // 予約番号を別シートにコピー
+     // このプログラムが所属するスプレッドシートのうち、「統計データ」という名前のシートを取得
+       let Yoyaku_list_sheet = Yoyaku_Spreadsheet.getSheetByName("統計データ");
+     // 予約番号を統計データシートのＡ列に代入
+       Yoyaku_list_sheet.getRange(Yoyaku_NO,1).setValue(Yoyaku_NO);
+     // 予約日を統計データシートのB列に代入
+       // 予約日を「YY/MM/DD」の形から「YY年MM月DD日」の形に変換
+         // 「/」を境目にして、一番左側の文字列を変数「Yoyaku_year」に代入
+           let Yoyaku_year = Yoyaku_day.split("/")[0];
+         // 「/」を境目にして、中央の文字列を変数「Yoyaku_month」に代入
+           let Yoyaku_month = Yoyaku_day.split("/")[1]
+         // 「/」を境目にして、一番右側の文字列を変数「Yoyaku_day2」に代入
+           let Yoyaku_day2 = Yoyaku_day.split("/")[2];
+         // 「YY年MM月DD日」の形に変換して、変数「Moji_yoyaku_day」に代入
+           let Moji_yoyaku_day = Yoyaku_year + "年" + Yoyaku_month + "月" + Yoyaku_day2 + "日"
+         // 予約日を統計データシートのB列に代入
+           Yoyaku_list_sheet.getRange(Yoyaku_NO,2).setValue(Moji_yoyaku_day);
+       // 氏名を統計データシートのC列に代入
+         Yoyaku_list_sheet.getRange(Yoyaku_NO,3).setValue(Name);
+       // メールアドレスを統計データシートのD列に代入
+         Yoyaku_list_sheet.getRange(Yoyaku_NO,4).setValue(Email);
+       // Rankingを統計データシートのE列に代入
+         Yoyaku_list_sheet.getRange(Yoyaku_NO,5).setValue(Ranking);
+     // ログを書く
+       console.log("予約情報のコピー完了") 
 
-   // ログを書く
-     console.log("予約番号：" + Ranking + "、　予約日：" + new Date(Yoyaku_day) + "に実行完了")
+   // 確認メール送信
+     // 自動返信メール件名を変数「Subject」に代入
+       let Subject ="【" + Name + "様へ】　工学院大学付属中学・高等学校　３Dプリンター　予約確認メール";
+    
+     // 自動返信メール本文を変数「Body」に代入
+       let Body = 
+       "---------------------------------------------" + "\n"
+       + "※このメールは自動送信しておりますので、このメールにご返信いただいてもお答えできませんのでご了承ください。"+ "\n"
+       + "※お心当たりがない場合は、メールの破棄をお願いいたします。" + "\n"
+       + "---------------------------------------------" + "\n\n"
+       + Name + "様"+"\n\n"
+       + "工学院大学附属中学校・高等学校　デジタルクリエイター育成同好会　ものづくり班です。"+ "\n\n"
+       + "このたびは、３Dプリンターの利用予約をいただき、誠にありがとうございます。" + "\n"
+       + "下記URLの先に記載されている通り、カレンダーへの適応が完了しました。確認をお願い致します。"+ "\n\n"
+       + "★予約の確認はこちら↓★" + "\n"
+       + Calendar_URL + "\n\n"
+       + "---------------------------------------------"+ "\n"
+       + "＜予約の詳細＞" + "\n\n"
+       + "　予約順：" + "　" + Ranking + "\n"
+       + "　予約番号：" + "　" + Yoyaku_NO + "\n\n"
+       + "※予約番号は予約をキャンセルする際に本人確認で使用しますので、厳重に保管してください。" + "\n\n"
+       + "---------------------------------------------"+ "\n"
+       + "＜注意事項＞"+ "\n"
+       + "　※予約は、１日ごとに管理しております。そのため、お手数をおかけしますが、３Dプリンターを使うたびにご予約ください。" + "\n"
+       + "　※このメールは送信専用です。返信は出来ません。" + "\n"
+       + "　※取り消す際は、デジクリの３Dプリンターメンバー（放課後に３Dプリンターをいじっている人は大体そうです。笑）にご一報ください。"
+       + "\n\n"
+       + "---------------------------------------------"+ "\n"
+       + "　ご回答された内容："+ "\n\n"
+       + "　４桁番号：" + "　" + CLNO + "\n"
+       + "　　お名前：" + "　" + Name + "\n"
+       + "　　予約日：" + "　"+ Yoyaku_day + "\n"
+       + "　　印刷物：" + "　" + About_Thing + "\n"
+       + "　　　補助：" + "　" + Hojo + "\n"
+       + "　　　備考：" + "　" + Other_info + "\n\n"
+       + "　　Formsが送信された日時："　+ "　" + TimeStamp + "\n\n"
+       + "============================================" + "\n"
+       + "工学院大学附属中学校・高等学校　デジタルクリエイター育成同好会　ものづくり班" + "\n"
+       + "============================================";
+    
+     // メール送信
+       MailApp.sendEmail(Email,Subject,Body);
+
+     // ログを書く
+       console.log("予約番号：" + Yoyaku_NO + "、　予約日：" + Yoyaku_day + "に実行完了")
 
    //Mainprogramの終了を示す
      return Ranking;
