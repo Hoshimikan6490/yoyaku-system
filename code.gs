@@ -23,7 +23,7 @@
 function onFormSubmit(e) {
  //　手動初期設定
    // カレンダーIDを指定
-    let Calendar_ID = "～～～@group.calendar.google.com";
+    let Calendar_ID = "○○@group.calendar.google.com";
 
    // GoogleカレンダーのURLを指定
     let Calendar_URL = "https://calendar.google.com/calendar/～～～";
