@@ -19,4 +19,4 @@
 12. トリガーを作成
 
 ### 詳細な制作方法
-　仕様上、ここで説明するのは困難なため、[こちら](https://docs.google.com/presentation/d/1Z6X8r1lDuS5SBVQIaswEVqARF-M6jq_h/edit?usp=sharing&ouid=106480420577465092683&rtpof=true&sd=true)をご参照ください。
+　仕様上、ここで説明するのは困難なため、[こちら](https://docs.google.com/presentation/d/1kbetnzNWJhqHs8HRFIbdlJpq9zAkcbEO/edit?usp=sharing&ouid=106480420577465092683&rtpof=true&sd=true)をご参照ください。
