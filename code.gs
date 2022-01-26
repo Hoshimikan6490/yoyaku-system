@@ -30,6 +30,10 @@ function onFormSubmit(e) {
   
    // FormsのURLを指定
     let Forms_URL = "https://forms.gle/～～～";
+ 
+   // 登録用スプレッドシートの統計データが記録されたシートの名前を設定
+     let Database_sheet = "統計データ"
+ // 手動初期設定完了
 
  // 自動初期設定
    // タイムスタンプを変数「TimeStamp」に代入
@@ -105,7 +109,7 @@ function onFormSubmit(e) {
      
    // 予約番号を別シートにコピー
      // このプログラムが所属するスプレッドシートのうち、「統計データ」という名前のシートを取得
-       let Yoyaku_list_sheet = Yoyaku_Spreadsheet.getSheetByName("統計データ");
+       let Yoyaku_list_sheet = Yoyaku_Spreadsheet.getSheetByName(Database_sheet);
      // 予約番号を統計データシートのＡ列に代入
        Yoyaku_list_sheet.getRange(Yoyaku_NO,1).setValue(Yoyaku_NO);
      // 予約日を統計データシートのB列に代入
