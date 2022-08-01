@@ -23,4 +23,4 @@
 
 ---
 ## 改良版について
-メールをHTMLメールで送信する形式のプログラムは、__**[こちら]()**__からご覧ください。
+メールをHTMLメールで送信する形式のプログラムは、**[こちら](https://github.com/Hoshimikan6490/yoyaku-system/tree/main/.new_system)**からご覧ください。
