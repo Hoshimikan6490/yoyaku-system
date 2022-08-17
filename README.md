@@ -8,5 +8,5 @@
 
 ---
 ## 改良版について
-メールをHTMLメールで送信する形式のプログラムは、https://github.com/Hoshimikan6490/yoyaku-system/tree/main/.new_systemからご覧ください。
+メールをHTMLメールで送信する形式のプログラムは、https://github.com/Hoshimikan6490/yoyaku-system/tree/main/.new_system からご覧ください。
 ※制作方法はほぼ変わりません
