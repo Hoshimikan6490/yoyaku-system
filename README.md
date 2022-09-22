@@ -13,7 +13,7 @@
 　※__**改良版(more_new_program)では↑このプログラムは使用しません**__
 
 ---
-#　改良版について
+# 改良版について
 
 ## 改良版(new_system)について
 メールをHTMLメールで送信する形式のプログラムは[こちら](https://github.com/Hoshimikan6490/yoyaku-system/tree/main/.new_system)
