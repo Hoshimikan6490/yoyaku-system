@@ -9,7 +9,8 @@
 ---
 # キャンセルシステムについて
 
-　キャンセルシステムは、[こちら](https://github.com/Hoshimikan6490/cancel-system)です。 
+　キャンセルシステムは、[こちら](https://github.com/Hoshimikan6490/cancel-system)です。
+ 
 　※__**改良版(more_new_program)では↑このプログラムは使用しません**__
 
 ---
