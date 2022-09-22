@@ -7,6 +7,14 @@
 　仕様上、ここで説明するのは困難なため、[こちら](https://docs.google.com/presentation/d/1kbetnzNWJhqHs8HRFIbdlJpq9zAkcbEO/edit?usp=sharing&ouid=106480420577465092683&rtpof=true&sd=true)をご参照ください。
 
 ---
+# キャンセルシステムについて
+
+　キャンセルシステムは、[こちら](https://github.com/Hoshimikan6490/cancel-system)です。 
+　※__**改良版(more_new_program)では↑このプログラムは使用しません**__
+
+---
+#　改良版について
+
 ## 改良版(new_system)について
 メールをHTMLメールで送信する形式のプログラムは[こちら](https://github.com/Hoshimikan6490/yoyaku-system/tree/main/.new_system)
 
