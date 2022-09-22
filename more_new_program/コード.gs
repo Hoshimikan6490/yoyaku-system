@@ -287,8 +287,8 @@ function onFormSubmit(e) {
              let Body = "";
            // 追加設定
              let Options ={
-               // 送信者を「工学院大学付属中学・高等学校　ものづくり班」にする
-               "name": "工学院大学付属中学・高等学校　ものづくり班",
+               // 送信者を「3Dプリンター　管理者」にする
+               "name": "3Dプリンター　管理者",
                // メールの本文に変数代入の終わったHTMLデータを挿入
                "htmlBody": html_perfect
               };
@@ -329,8 +329,8 @@ function onFormSubmit(e) {
          let Body = "";
        // 追加設定
          let Options ={
-           // 送信者を「工学院大学付属中学・高等学校　ものづくり班」にする
-           "name": "工学院大学付属中学・高等学校　ものづくり班",
+           // 送信者を「3Dプリンター　管理者」にする
+           "name": "3Dプリンター　管理者",
            // メールの本文に変数代入の終わったHTMLデータを挿入
            "htmlBody": html_perfect
           };
