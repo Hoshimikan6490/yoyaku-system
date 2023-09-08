@@ -17,7 +17,7 @@
 # 改良版について
 
 ## 改良版(new_system)について
-メールをHTMLメールで送信する形式のプログラムは[こちら](https://github.com/Hoshimikan6490/yoyaku-system/tree/main/.new_system)
+メールをHTMLメールで送信する形式のプログラムは[こちら](https://github.com/Hoshimikan6490/yoyaku-system/tree/main/new_system)
 
 ## 改良版(more_new_program)について
 予約システムとキャンセルシステムを統合し、１日当たりの最大予約数を容易に変更できるように編集したバージョンは[こちら](https://github.com/Hoshimikan6490/yoyaku-system/tree/main/more_new_program)  
